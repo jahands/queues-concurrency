@@ -17,4 +17,4 @@ queue = "queue-concurrency-test"
 max_batch_size = 6
 max_batch_timeout = 30
 max_retries = 1
-max_concurrency = 1
+max_concurrency = 1 # Update to 10 to *try* to speed up

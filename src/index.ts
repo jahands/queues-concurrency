@@ -8,11 +8,9 @@ export default {
 		const url = new URL(req.url);
 		if (url.pathname === '/add') {
 			const pq = new PQueue({ concurrency: 6 });
-			for (let i = 0; i < 100; i++) {
+			for (let i = 0; i < 500; i++) {
 				pq.add(() =>
-					env.MY_QUEUE.send({
-						id: crypto.randomUUID(),
-					})
+					env.MY_QUEUE.send('ping')
 				);
 			}
 			await pq.onIdle();
