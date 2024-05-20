@@ -21,12 +21,11 @@ npx wrangler deploy
 # Enable wrangler tail to monitor processing time:
 npx wrangler tail # in separate terminal
 
-# Send 1000 items to the queue
-curl https://queues-concurrency.jhands.workers.dev/add
-curl https://queues-concurrency.jhands.workers.dev/add
+# Queue a bunch of messages
+while $true; do curl https://queues-concurrency.jhands.workers.dev/add; done
 
 # Update max_concurrency in wrangler.toml between 1 and 10
-# to see how logs slow down.
+# to see logs of message processing slowing down.
 ```
 
 ### Example logs with 1 concurrency:
