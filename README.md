@@ -23,10 +23,11 @@ npx wrangler tail # in separate terminal
 
 # Queue a bunch of messages
 while $true; do curl https://queues-concurrency.jhands.workers.dev/add; done
-
-# Update max_concurrency in wrangler.toml between 1 and 10
-# to see logs of message processing slowing down.
 ```
+
+Update max_concurrency in wrangler.toml between 1 and 10 to see logs of message processing slowing down.
+
+Can also adjust sleep time and batch size as well - some combinations may be slowed down more than others. But the current settings are good enough to reliably see requests taking longer thant hey should.
 
 ### Example logs with 1 concurrency:
 
